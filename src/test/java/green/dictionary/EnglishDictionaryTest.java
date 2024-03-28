@@ -31,10 +31,10 @@ class EnglishDictionaryTest {
         List<String[]> definitions = dictionary.getDefinition("Aard-vark");
 
         // then
-        assertEquals("Aard-vark, n., An edentate mammal, of the genus Orycteropus, " +
-                "somewhat resembling a pig, common in some parts of Southern Africa. " +
-                "It burrows in the ground, and feeds entirely on ants, " +
-                "which it catches with its long, slimy tongue.", dictionary.toString(definitions));
+        assertEquals("Aard-vark, n., An edentate mammal, of the genus Orycteropus, "
+                + "somewhat resembling a pig, common in some parts of Southern Africa. "
+                + "It burrows in the ground, and feeds entirely on ants, "
+                + "which it catches with its long, slimy tongue.", dictionary.toString(definitions));
     }
 
     @Test
@@ -46,8 +46,9 @@ class EnglishDictionaryTest {
         List<String[]> definitions = dictionary.getDefinition("Aband");
 
         // then
-        assertEquals("Aband, v. t., To abandon." +
-                "Aband, v. t., To banish; to expel.", dictionary.toString(definitions));
+        assertEquals("Aband, v. t., To abandon."
+                + "Aband, v. t., To banish; to expel.",
+                dictionary.toString(definitions));
     }
 
 }

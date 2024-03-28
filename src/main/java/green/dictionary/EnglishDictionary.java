@@ -1,10 +1,7 @@
 package green.dictionary;
 
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +12,9 @@ public class EnglishDictionary {
     private static final HashMap<String, List<String[]>> definitions = new HashMap<>();
 
     public EnglishDictionary()  {
-        try (CSVReader csvReader = new CSVReader(new FileReader("englishDictionary.csv"))) {
+        try (CSVReader csvReader = new CSVReader(new FileReader(
+                "/Users/yaelgreen/IdeaProjects/green-dictionary-2024"
+                        + "/src/main/resources/englishDictionary.csv"))) {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
@@ -34,7 +33,7 @@ public class EnglishDictionary {
     }
 
     public String toString(List<String[]> text) {
-        if(text == null) {
+        if (text == null) {
             return null;
         }
         StringBuilder str = new StringBuilder();
