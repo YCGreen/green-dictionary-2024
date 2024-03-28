@@ -10,11 +10,9 @@ public class Main {
     public static void main(String[] args) {
         EnglishDictionary dic = new EnglishDictionary();
 
-        List<String[]> text = dic.getDefinition("Abandon");
+        List<String[]> text = dic.getDefinition("Aard-vark");
 
-        for (String[] definition : text) {
-            System.out.println(String.join(", ", definition));
-        }
+        System.out.println(dic.toString(text));
 
 
 
