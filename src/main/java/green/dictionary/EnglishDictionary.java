@@ -9,12 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class EnglishDictionary {
-    private static final HashMap<String, List<String[]>> definitions = new HashMap<>();
+    private final HashMap<String, List<String[]>> definitions = new HashMap<>();
 
     public EnglishDictionary()  {
         try (CSVReader csvReader = new CSVReader(new FileReader(
-                "/Users/yaelgreen/IdeaProjects/green-dictionary-2024"
-                        + "/src/main/resources/englishDictionary.csv"))) {
+                "englishDictionary.csv"))) {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
