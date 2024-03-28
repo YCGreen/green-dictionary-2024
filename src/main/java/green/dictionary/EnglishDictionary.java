@@ -5,6 +5,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,9 +18,10 @@ public class EnglishDictionary {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
-                List<String[]> wordDefs = definitions.getOrDefault(word, new ArrayList<>());
-                wordDefs.add(nextDef);
-                definitions.put(word, wordDefs);
+                String[] defs = Arrays.copyOfRange(nextDef, 2, nextDef.length);
+                List<String[]> defsAsList = definitions.getOrDefault(word, new ArrayList<>());
+                defsAsList.add(defs);
+                definitions.put(word, defsAsList);
             }
         } catch (IOException | CsvValidationException e) {
             throw new RuntimeException(e);
