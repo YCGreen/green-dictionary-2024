@@ -2,8 +2,9 @@ package green.dictionary;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,9 +13,13 @@ import java.util.List;
 public class EnglishDictionary {
     private final HashMap<String, List<String[]>> definitions = new HashMap<>();
 
-    public EnglishDictionary()  {
-        try (CSVReader csvReader = new CSVReader(new FileReader(
-                "englishDictionary.csv"))) {
+    public EnglishDictionary() {
+        InputStream in = EnglishDictionary.class.getResourceAsStream(
+                "englishDictionary.csv");
+
+        CSVReader csvReader = new CSVReader(new InputStreamReader(in));
+
+        try {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
@@ -23,7 +28,7 @@ public class EnglishDictionary {
                 defsAsList.add(defs);
                 definitions.put(word, defsAsList);
             }
-        } catch (IOException | CsvValidationException e) {
+        } catch (CsvValidationException | IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -43,11 +48,5 @@ public class EnglishDictionary {
         }
         return str.toString();
     }
-
-
-
-
-
-
 
 }
