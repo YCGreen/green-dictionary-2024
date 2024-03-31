@@ -43,16 +43,4 @@ public class EnglishDictionary {
     public List<String[]> getDefinition(String word) {
         return definitions.get(word);
     }
-
-    public String toString(List<String[]> text) {
-        if (text == null) {
-            return null;
-        }
-        StringBuilder str = new StringBuilder();
-        for (int i = 0; i < text.size(); i++) {
-            str.append(String.join(", ", text.get(i)));
-        }
-        return str.toString();
-    }
-
 }
