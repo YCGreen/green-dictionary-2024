@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class EnglishDictionary {
         if (line.length < 3) { //default definition is 3rd element as per this csv
             return "Abnormal format of definition, unable to extract";
         }
-        return String.join(" ", Arrays.copyOfRange(line, 2, line.length));
+        return line[2];
     }
 
     public List<String> getDefinition(String word) {

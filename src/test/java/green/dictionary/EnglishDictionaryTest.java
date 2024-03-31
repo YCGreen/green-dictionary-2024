@@ -34,7 +34,7 @@ class EnglishDictionaryTest {
         assertEquals("An edentate mammal, of the genus Orycteropus, "
                 + "somewhat resembling a pig, common in some parts of Southern Africa. "
                 + "It burrows in the ground, and feeds entirely on ants, "
-                + "which it catches with its long, slimy tongue.", definitions.get(0).toString());
+                + "which it catches with its long, slimy tongue.", definitions.get(0));
     }
 
     @Test
@@ -46,8 +46,8 @@ class EnglishDictionaryTest {
         List<String> definitions = dictionary.getDefinition("Aband");
 
         // then
-        assertEquals("To abandon.", definitions.get(0).toString());
-        assertEquals("To banish; to expel.", definitions.get(1).toString());
+        assertEquals("To abandon.", definitions.get(0));
+        assertEquals("To banish; to expel.", definitions.get(1));
     }
 
 }
