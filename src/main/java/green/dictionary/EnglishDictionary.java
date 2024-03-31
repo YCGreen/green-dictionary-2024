@@ -34,7 +34,7 @@ public class EnglishDictionary {
     }
 
     private String[] extractDefFromLine(String[] line) {
-        if(line.length < 3) { //default definition is 3rd element as per this csv
+        if (line.length < 3) { //default definition is 3rd element as per this csv
             return new String[] {"Abnormal format of definition, unable to extract"};
         }
         return Arrays.copyOfRange(line, 2, line.length);
