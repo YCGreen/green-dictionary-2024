@@ -16,7 +16,7 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String[]> definitions = dictionary.getDefinition("blahblahblah");
+        List<String> definitions = dictionary.getDefinition("blahblahblah");
 
         // then
         assertNull(definitions);
@@ -28,13 +28,13 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String[]> definitions = dictionary.getDefinition("Aard-vark");
+        List<String> definitions = dictionary.getDefinition("Aard-vark");
 
         // then
         assertEquals("An edentate mammal, of the genus Orycteropus, "
                 + "somewhat resembling a pig, common in some parts of Southern Africa. "
                 + "It burrows in the ground, and feeds entirely on ants, "
-                + "which it catches with its long, slimy tongue.", definitions.get(0)[0].toString());
+                + "which it catches with its long, slimy tongue.", definitions.get(0).toString());
     }
 
     @Test
@@ -43,11 +43,11 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String[]> definitions = dictionary.getDefinition("Aband");
+        List<String> definitions = dictionary.getDefinition("Aband");
 
         // then
-        assertEquals("To abandon.", definitions.get(0)[0].toString());
-        assertEquals("To banish; to expel.", definitions.get(1)[0].toString());
+        assertEquals("To abandon.", definitions.get(0).toString());
+        assertEquals("To banish; to expel.", definitions.get(1).toString());
     }
 
 }

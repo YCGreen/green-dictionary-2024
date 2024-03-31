@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class EnglishDictionary {
-    private final HashMap<String, List<String[]>> definitions = new HashMap<>();
+    private final HashMap<String, List<String>> definitions = new HashMap<>();
 
     public EnglishDictionary() {
         InputStream in = EnglishDictionary.class.getResourceAsStream(
@@ -23,7 +23,7 @@ public class EnglishDictionary {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
-                List<String[]> defsAsList = definitions.getOrDefault(word, new ArrayList<>());
+                List<String> defsAsList = definitions.getOrDefault(word, new ArrayList<>());
                 defsAsList.add(extractDefFromLine(nextDef));
                 definitions.put(word, defsAsList);
             }
@@ -33,14 +33,14 @@ public class EnglishDictionary {
 
     }
 
-    private String[] extractDefFromLine(String[] line) {
+    private String extractDefFromLine(String[] line) {
         if (line.length < 3) { //default definition is 3rd element as per this csv
-            return new String[] {"Abnormal format of definition, unable to extract"};
+            return "Abnormal format of definition, unable to extract";
         }
-        return Arrays.copyOfRange(line, 2, line.length);
+        return String.join(" ", Arrays.copyOfRange(line, 2, line.length));
     }
 
-    public List<String[]> getDefinition(String word) {
+    public List<String> getDefinition(String word) {
         return definitions.get(word);
     }
 }
