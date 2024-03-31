@@ -8,13 +8,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        EnglishDictionary dic = new EnglishDictionary();
-
-        List<String[]> text = dic.getDefinition("Aard-vark");
-
-        System.out.println(dic.toString(text));
-
-
 
     }
 }

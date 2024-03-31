@@ -15,7 +15,7 @@ public class EnglishDictionary {
 
     public EnglishDictionary() {
         InputStream in = EnglishDictionary.class.getResourceAsStream(
-                "englishDictionary.csv");
+                "/englishDictionary.csv");
 
         CSVReader csvReader = new CSVReader(new InputStreamReader(in));
 
@@ -23,15 +23,21 @@ public class EnglishDictionary {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
-                String[] defs = Arrays.copyOfRange(nextDef, 2, nextDef.length);
                 List<String[]> defsAsList = definitions.getOrDefault(word, new ArrayList<>());
-                defsAsList.add(defs);
+                defsAsList.add(extractDefFromLine(nextDef));
                 definitions.put(word, defsAsList);
             }
         } catch (CsvValidationException | IOException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private String[] extractDefFromLine(String[] line) {
+        if(line.length < 3) { //default definition is 3rd element as per this csv
+            return new String[] {"Abnormal format of definition, unable to extract"};
+        }
+        return Arrays.copyOfRange(line, 2, line.length);
     }
 
     public List<String[]> getDefinition(String word) {
