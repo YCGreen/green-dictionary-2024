@@ -36,7 +36,7 @@ public class DictionaryFrame extends JFrame {
                 if (def == null) {
                     definition.setText("No definition found");
                 } else {
-                    definition.setText(dictionary.defToString(def));
+                    definition.setText(defToString(def));
                 }
             }
 
@@ -52,5 +52,13 @@ public class DictionaryFrame extends JFrame {
         };
 
         word.getDocument().addDocumentListener(docListener);
+    }
+
+    private String defToString(List<String> defs) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < defs.size(); i++) {
+            str.append(defs.get(i)).append("\n");
+        }
+        return str.toString();
     }
 }

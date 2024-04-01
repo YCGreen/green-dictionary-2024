@@ -50,4 +50,17 @@ class EnglishDictionaryTest {
         assertEquals("To banish; to expel.", definitions.get(1));
     }
 
+    @Test
+    public void getDefinitionCase() {
+        // given
+        EnglishDictionary dictionary = new EnglishDictionary();
+
+        // when
+        List<String> definitions = dictionary.getDefinition("aBaNd");
+
+        // then
+        assertEquals("To abandon.", definitions.get(0));
+        assertEquals("To banish; to expel.", definitions.get(1));
+    }
+
 }
