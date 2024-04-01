@@ -33,10 +33,9 @@ public class DictionaryFrame extends JFrame {
             public void insertUpdate(DocumentEvent e) {
                 List<String> def = dictionary.getDefinition(word.getText());
 
-                if(def == null) {
+                if (def == null) {
                     definition.setText("No definition found");
-                }
-                else {
+                } else {
                     definition.setText(dictionary.defToString(def));
                 }
             }

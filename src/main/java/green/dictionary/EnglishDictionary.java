@@ -45,7 +45,7 @@ public class EnglishDictionary {
 
     public String defToString(List<String> defs) {
         StringBuilder str = new StringBuilder();
-        for(int i = 0; i < defs.size(); i++) {
+        for (int i = 0; i < defs.size(); i++) {
             str.append(defs.get(i)).append("\n");
         }
         return str.toString();
