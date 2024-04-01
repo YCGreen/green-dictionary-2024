@@ -23,7 +23,9 @@ public class DictionaryFrame extends JFrame {
         JTextField word = new JTextField();
         main.add(word, BorderLayout.PAGE_START);
 
-        JLabel definition = new JLabel("hi");
+        JTextArea definition = new JTextArea();
+        definition.setLineWrap(true);
+        definition.setWrapStyleWord(true);
         main.add(definition);
 
         DocumentListener docListener = new DocumentListener() {
