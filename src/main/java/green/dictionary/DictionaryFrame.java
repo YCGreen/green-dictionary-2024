@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DictionaryFrame extends JFrame {
 
-    EnglishDictionary dictionary = new EnglishDictionary();
+    private EnglishDictionary dictionary = new EnglishDictionary();
 
     public DictionaryFrame() {
         setSize(800, 600);
