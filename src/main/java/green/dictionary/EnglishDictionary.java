@@ -22,9 +22,9 @@ public class EnglishDictionary {
             String[] nextDef;
             while ((nextDef = csvReader.readNext()) != null) {
                 String word = nextDef[0];
-                List<String> defsAsList = definitions.getOrDefault(word, new ArrayList<>());
+                List<String> defsAsList = definitions.getOrDefault(word.toUpperCase(), new ArrayList<>());
                 defsAsList.add(extractDefFromLine(nextDef));
-                definitions.put(word, defsAsList);
+                definitions.put(word.toUpperCase(), defsAsList);
             }
         } catch (CsvValidationException | IOException e) {
             throw new RuntimeException(e);
@@ -40,6 +40,8 @@ public class EnglishDictionary {
     }
 
     public List<String> getDefinition(String word) {
-        return definitions.get(word);
+        return definitions.get(word.toUpperCase());
     }
+
+
 }
